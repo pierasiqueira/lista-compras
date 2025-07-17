@@ -3,7 +3,7 @@ const listaDeCompras = document.getElementById("lista-de-compras");
 const botaoAdicionar = document.getElementById('adicionar-item');
 let contador = 0;
 
-botaoAdicionar.addEventListener('click', (evento) => {
+botaoAdicionar.addEventListener("click", (evento) => {
     evento.preventDefault();
     if (inputItem.value === "") {
         alert("Por favor, insira um item!");
@@ -19,6 +19,13 @@ botaoAdicionar.addEventListener('click', (evento) => {
     const nomeItem = document.createElement("p");
     nomeItem.innerText = inputItem.value;
 
+inputCheckbox.addEventListener("click", function() {
+    if (inputCheckbox.checked) {
+            nomeItem.style.textDecoration = "line-through";
+        } else {
+            nomeItem.style.textDecoration = "none"}
+    })
+
     containerItemDaLista.appendChild(inputCheckbox);
     containerItemDaLista.appendChild(nomeItem);
     
@@ -30,7 +37,7 @@ botaoAdicionar.addEventListener('click', (evento) => {
     const dataCompleta = `${diaDaSemana} (${data}) às ${hora}`;
     const itemData = document.createElement("p");
     itemData.innerText = dataCompleta;
-    itemData;classList.add("texto-data");
+    itemData.classList.add("texto-data");
 
     itemDaLista.appendChild(itemData);
     
